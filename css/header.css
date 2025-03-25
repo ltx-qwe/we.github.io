@@ -1,0 +1,168 @@
+/* 头部  header.css */
+
+.header{
+    height: 50px;
+    background:  rgb(109, 0, 0);
+    /* background: linear-gradient(to right, rgb(109, 0, 0), rgba(247, 170, 185, 0.1));  */
+    overflow: hidden; 
+    position: relative; 
+
+
+
+
+/* 新增样式 */
+/* 关键CSS */
+
+    display: flex;          /* 启用弹性布局 */
+    justify-content: space-between; /* 左右两侧分开 */
+  }
+  
+  .header_right {
+    display: flex;          /* 右侧内部也启用弹性布局 */
+    justify-content: flex-end; /* 内容向右对齐 */
+    align-items: center;   /* 垂直居中（可选） */
+  }
+  
+  .welcome-text {
+    text-align: right;      /* 文本右对齐 */
+    margin-right: 30px;
+  }
+    
+/* 新增或修改的 CSS */
+.welcome-text {
+    color: white; /* 主要文字颜色 */
+  }
+  
+  .welcome-text small {
+    color: inherit; /* 继承父级颜色（白色） */
+  }
+  
+  .welcome-text a {
+    color: white; /* 链接颜色 */
+    text-decoration: none; /* 移除下划线 */
+  }
+  
+  .welcome-text a:hover {
+    opacity: 0.8; /* 悬停时透明度变化（替代颜色变化） */
+  }
+
+  /* 导航栏 */
+  
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+.toper {
+  background: #0513e4;
+
+  margin-top: 3px;
+  height: 30px;
+}
+
+.toper ul {
+ 
+  list-style-type: none; 
+display: flex; 
+justify-content: flex-end; 
+margin-top: 3px;
+
+}
+
+.toper > ul > li {
+  position: relative;
+  margin-right: 1.5ch;
+ margin-top: 5px;
+  color: white;
+  cursor: pointer;
+
+
+}
+
+.toper a {
+
+  padding: 5px 5px;
+  cursor: pointer;
+  color: white; 
+  text-decoration: none;margin-right: 10px;
+ 
+}
+
+
+
+.toper li:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+
+
+
+/* 修正后的下拉菜单样式 */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;       /* 位于父元素底部 */
+  left: 50%;       /* 关键定位点 */
+  transform: translateX(-50%); /* 水平居中修正 */
+  background-color: rgb(201, 201, 201);
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 0;
+  margin: 0;
+  /* 移除固定width，改用min-width */
+  text-align: center; /* 可选：文字居中 */
+
+  white-space: nowrap; /* 防止文字换行 */
+  width: auto; /* 根据内容自动扩展 */
+
+  max-width: 100px; /* 控制最大宽度 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 过长显示省略号 */
+}
+
+.dropdown li{
+  width: 180px; /* 设置大于下拉菜单的宽度 */
+  text-align: center; /* 主菜单文字居中 */
+}
+
+.dropdown::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: rgb(201, 201, 201);
+}
+
+
+
+.dropdown a {
+  display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+.dropdown a:hover {
+  background-color: #f1f1f1;
+}
+/* 添加过渡动画 */
+.dropdown {
+
+opacity: 0;
+}
+.toper li:hover .dropdown {
+opacity: 1;
+}
+/* 唯一控制显示的规则 */
+.toper li:hover .dropdown {
+  display: block;
+}
